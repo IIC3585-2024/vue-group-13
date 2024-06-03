@@ -7,7 +7,7 @@ import router from './routes'
 
 
 createApp(App).use(router).use(store).use(vue3GoogleLogin, {
-  clientId: process.env.CLIENT_ID,
+  clientId: process.env.VITE_CLIENT_ID,
   scope: 'profile email https://www.googleapis.com/auth/books',
 }
 ).mount('#app')

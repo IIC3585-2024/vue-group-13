@@ -38,8 +38,8 @@ export default {
           .initCodeClient({
             scope: "email profile openid https://www.googleapis.com/auth/books",
             client_id:
-              process.env.CLIENT_ID,
-            redirect_uri: process.env.REDIRECT_URI,
+              process.env.VITE_CLIENT_ID,
+            redirect_uri: process.env.VITE_REDIRECT_URI,
             callback: (response) => {
               // console.log("response", response);
               if (response.code) fetchUserDataFrom(response.code);
@@ -52,9 +52,9 @@ export default {
       const { data } = await axios.post("https://oauth2.googleapis.com/token", {
         code: code,
         client_id:
-          process.env.CLIENT_ID,
-        client_secret: process.env.CLIENT_SECRET,
-        redirect_uri: process.env.REDIRECT_URI,
+          process.env.VITE_CLIENT_ID,
+        client_secret: process.env.VITE_CLIENT_SECRET,
+        redirect_uri: process.env.VITE_REDIRECT_URI,
         grant_type: "authorization_code",
       });
 
