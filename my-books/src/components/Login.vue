@@ -38,7 +38,7 @@ export default {
           .initCodeClient({
             scope: "email profile openid https://www.googleapis.com/auth/books",
             client_id:
-              process.env.VITE_CLIENT_ID,
+            import.meta.env.VITE_CLIENT_ID,
             redirect_uri: process.env.VITE_REDIRECT_URI,
             callback: (response) => {
               // console.log("response", response);
@@ -52,9 +52,9 @@ export default {
       const { data } = await axios.post("https://oauth2.googleapis.com/token", {
         code: code,
         client_id:
-          process.env.VITE_CLIENT_ID,
-        client_secret: process.env.VITE_CLIENT_SECRET,
-        redirect_uri: process.env.VITE_REDIRECT_URI,
+        import.meta.env.VITE_CLIENT_ID,
+        client_secret: import.meta.env.VITE_CLIENT_SECRET,
+        redirect_uri: import.meta.env.VITE_REDIRECT_URI,
         grant_type: "authorization_code",
       });
 
